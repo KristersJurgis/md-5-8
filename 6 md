@@ -1,0 +1,120 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace md6
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int x = -1; 
+            do
+            {
+                Console.Write("Ievadiet pozitīvu skaitli: ");
+                x = Convert.ToInt32(Console.ReadLine());
+            } while (x <= 0); 
+
+            Console.WriteLine("Skaitļa kvadrāts ir: " + x * x);
+            otrs();
+        }
+        static void otrs()
+        {
+            int number;
+            while (true)
+            {
+                Console.Write("Ievadiet veselu skaitli (0, lai izietu): ");
+                number = Convert.ToInt32(Console.ReadLine());
+                if (number == 0)
+                {
+                    break;
+                }
+                int gar = number.ToString().Length;
+                Console.WriteLine($"Skaitlim {number} ir {gar} cipari");
+            }
+            Console.WriteLine();
+            tresais();
+        }
+        static void tresais()
+        {
+            int z; 
+            do
+            {
+                Console.Write("Ievadiet pozitivu veselu skaitli: ");
+                z = Convert.ToInt32(Console.ReadLine());
+            } while (z <= 0);
+            int f = 1;
+            int y = 1;
+            while (y <= z){
+                f *= y;
+                y++;
+            }
+            Console.WriteLine($"Skaitla {z} faktorials ir {f}");
+            ceturtais();
+        }
+        static void ceturtais()
+        {
+            int k;
+            do
+            {
+                Console.Write("Ievadiet pozitivu veselu skaitli: ");
+                k = Convert.ToInt32(Console.ReadLine());
+            } while (k <= 0);
+            int sum = 0;
+            int h = 0;
+            while (h <= k)
+            {
+                if (h % 2 == 0)
+                {
+                    sum += h;
+                }
+                h++;
+            }
+            Console.WriteLine($"Pāra skaitļu summa līdz {k} ir {sum}");
+            piektais();
+        }
+        static void piektais()
+        {
+            int o = 0;
+            int p;
+
+            do
+            {
+                Console.Write("Ievadiet skaitli: ");
+                p = Convert.ToInt32(Console.ReadLine());
+                o += p;
+            } while (o <= 100);
+
+            Console.WriteLine("Ievadīto skaitļu summa ir " + o + " (>= 100)");
+            sestais();
+        }
+        static void sestais()
+        {
+            int n;
+            do
+            {
+                Console.Write("Ievadiet pozitīvu veselu skaitli: ");
+                n = Convert.ToInt32(Console.ReadLine());
+            } while (n <= 0);
+
+            int i = 2;
+            bool isPrime = true;
+            while (i * i <= n)
+            {
+                if (n % i == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
+                i++;
+            }
+
+            Console.WriteLine($"Skaitlis {n} {(isPrime ? "ir" : "nav")} pirmskaitlis.");
+        }
+    
+      
+    }
+}

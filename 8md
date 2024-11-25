@@ -1,0 +1,113 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _8md
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string input;
+            do
+            {
+                Console.Write("Ievadiet skaitli no 1 līdz 5 vai IZIET, lai beigtu darbību: ");
+                input = Console.ReadLine();
+
+                if (input.ToUpper() == "IZIET")
+                {
+                    Console.WriteLine("PROGRAMMA BEIDZ DARBĪBU");
+                    break;
+                }
+
+                if (int.TryParse(input, out int number))
+                {
+                    switch (number)
+                    {
+                        case 1:
+                            Console.WriteLine("Viens");
+                            break;
+                        case 2:
+                            Console.WriteLine("Divi");
+                            break;
+                        case 3:
+                            Console.WriteLine("Trīs");
+                            break;
+                        case 4:
+                            Console.WriteLine("Četri");
+                            break;
+                        case 5:
+                            Console.WriteLine("Pieci");
+                            break;
+                        default:
+                            Console.WriteLine("Skaitlis nav no robežas 1 līdz 5");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Lūdzu ievadiet derīgu skaitli vai 'IZIET'!");
+                }
+            }
+            while (true);
+            Otrs();
+        }
+        static void Otrs()
+        {
+            Console.Write("Cik reizes pārbaudīt skaitļus? ");
+            if (!int.TryParse(Console.ReadLine(), out int repeatCount) || repeatCount <= 0)
+            {
+                Console.WriteLine("Lūdzu ievadiet derīgu pozitīvu skaitli!");
+                return;
+            }
+
+            for (int i = 0; i < repeatCount; i++)
+            {
+                Console.Write("Ievadiet skaitli: ");
+                if (int.TryParse(Console.ReadLine(), out int number))
+                {
+                    if (number % 3 == 0)
+                    {
+                        Console.WriteLine("Skaitlis dalās ar 3 bez atlikuma!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Skaitlis NEdalās ar 3 bez atlikuma!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Lūdzu ievadiet derīgu skaitli!");
+                }
+
+            }
+            Tresais();
+        }
+        static void Tresais()
+        {
+            Console.Write("Ievadiet trijstūra platumu: ");
+            if (!int.TryParse(Console.ReadLine(), out int width) || width <= 0)
+            {
+                Console.WriteLine("Lūdzu ievadiet derīgu pozitīvu skaitli!");
+                return;
+            }
+
+            for (int i = width; i > 0; i--)
+            {
+                for (int j = 0; j < (width - i); j++)
+                {
+                    Console.Write(" ");
+                }
+
+                for (int k = 0; k < (2 * i - 1); k++)
+                {
+                    Console.Write("*");
+                }
+
+                Console.WriteLine();
+            }
+        }
+    }
+}

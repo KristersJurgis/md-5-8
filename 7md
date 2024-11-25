@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace d7
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Ievadiet skaitli: ");
+            int number = int.Parse(Console.ReadLine());
+            int factorial = 1;
+            for (int i = 1; i <= number; i++)
+            {
+                if (i == 1)
+                {
+                    Console.WriteLine($"1 * 1 = 1");
+                }
+                else
+                {
+                    Console.WriteLine($"{factorial} * {i} = {factorial * i}");
+                }
+                factorial *= i;
+            }
+
+            Console.ReadKey();
+            Otrs();
+        }
+        static void Otrs()
+        {
+            Console.Write("Ievadiet noguldījuma summu: ");
+            double nog = double.Parse(Console.ReadLine());
+            Console.Write("Ievadiet noguldījuma ilgumu (gadu skaitu): ");
+            int gad = int.Parse(Console.ReadLine());
+            Console.Write("Ievadiet gada procentu likmi : ");
+            double lik = double.Parse(Console.ReadLine());
+
+            double totalAmount = nog;
+
+            for (int gads = 1; gads <= gad; gads++)
+            {
+                totalAmount *= (1 + lik);
+                Console.WriteLine($"Summa pēc {gads} gada ir {totalAmount:F2} ");
+            }
+            Tresais();
+        }
+        static void Tresais()
+        {
+            Console.Write("x/y\t");
+            for (int j = 1; j <= 10; j++)
+            {
+                Console.Write(j + "\t");
+            }
+            Console.WriteLine();
+
+            Console.Write("-");
+            for (int j = 1; j <= 81; j++)
+            {
+                Console.Write("-");
+            }
+            Console.WriteLine();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.Write(i + "\t");
+                for (int j = 1; j <= 10; j++)
+                {
+                    Console.Write(i * j + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace md5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Ievadiet taisnstūra garumu: ");
+            int rows = int.Parse(Console.ReadLine());
+
+            int i = 1;
+            while (i <= rows)
+            {
+                int j = 1;
+                while (j <= i)
+                {
+                    Console.Write("*");
+                    j++;
+                }
+                Console.WriteLine();
+                i++;
+            }
+            second();
+        }
+        static void second()
+        {
+            string pass = "Kakis";
+            string pass1;
+            do {
+                Console.WriteLine("Ludzu ievadiet paroli: ");
+                pass1 = Console.ReadLine();
+                if (pass1 == pass)
+                {
+                    Console.WriteLine("Parole pareiza");
+                }
+                else
+                {
+                    Console.WriteLine("Parole nepareizi ievadita");
+                }
+            } 
+            while (pass != pass1);
+
+            tresais();
+        }
+        static void tresais()
+        {
+            Console.WriteLine("Ievadiet Skatili R: ");
+            int R = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ievadiet pirmo skaitli: ");
+            int L = Convert.ToInt32(Console.ReadLine());
+            int X = R + L;
+            int count = 1;
+            do
+            {
+                Console.WriteLine($"Reiz[{count - 1}] = {L}");
+                int nextNumber = Convert.ToInt32(Console.ReadLine());
+                L *= nextNumber;
+                count++;
+            }
+            while(count <= R);
+            Console.WriteLine($"Reiz[{R}]: {L}");
+        }
+    }
+}
